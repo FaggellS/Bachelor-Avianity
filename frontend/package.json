@@ -1,6 +1,6 @@
 {
   "allowedHosts": "all",
-  "proxy": "https://avianity.onrender.com",
+  "proxy": "https://bachelor-avianity.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
