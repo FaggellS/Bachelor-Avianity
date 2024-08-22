@@ -1,6 +1,6 @@
 {
   "allowedHosts": "all",
-  "proxy": "CHANGE",
+  "proxy": "https://avianity.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,

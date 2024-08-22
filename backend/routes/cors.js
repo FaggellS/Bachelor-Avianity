@@ -1,6 +1,6 @@
 const cors = require('cors')
 
-const whitelist = ['http://localhost:3000', 'http://localhost:5000', 'http://192.168.1.114:3000']
+const whitelist = ['https://avianity.onrender.com']
 
 const corsOptionsDelegate = (req, callback) => {
     console.log("CORS !!")
