@@ -26,6 +26,7 @@ app.use( (req, res, next) => {
     res.set('Access-Control-Allow-Origin', 'https://avianity.onrender.com')
     next()
 })
+app.use(express.static(path.join(__dirname, "build")));
 app.use('/api/images', express.static(path.join(__dirname, 'images')))
 
 
