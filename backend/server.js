@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 
 const app = express()
+const port = process.env.PORT || 4000
 
 const mongoose = require('mongoose')
 const path = require('path')
@@ -40,7 +41,7 @@ app.use('/api/commune', communeRoutes)
 mongoose.connect( process.env.MONGO_URI, { dbName: 'tb_mern' })
     .then( () => {
 
-        app.listen( portNumber = process.env.PORT, () => {
+        app.listen( portNumber = port, () => {
             console.log('\nconnected to db and listening on port ' + portNumber + "\n waiting for requests...\n\n")
         })
 
