@@ -1,0 +1,180 @@
+﻿artid,euringid,english,deutsch,francais
+50,70,Little Grebe,Zwergtaucher,Grèbe castagneux
+70,120,Black-necked Grebe,Schwarzhalstaucher,Grèbe à cou noir
+80,90,Great Crested Grebe,Haubentaucher,Grèbe huppé
+350,720,Great Cormorant,Kormoran,Grand Cormoran
+390,1220,Grey Heron,Graureiher,Héron cendré
+400,1240,Purple Heron,Purpurreiher,Héron pourpré
+470,980,Common Little Bittern,Zwergdommel,Blongios nain
+500,1340,White Stork,Weissstorch,Cigogne blanche
+720,1860,Mallard,Stockente,Canard colvert
+820,1820,Gadwall,Schnatterente,Canard chipeau
+850,1960,Red-crested Pochard,Kolbenente,Nette rousse
+860,1980,Common Pochard,Tafelente,Fuligule milouin
+870,2030,Tufted Duck,Reiherente,Fuligule morillon
+950,2060,Common Eider,Eiderente,Eider à duvet
+1050,2230,Goosander,Gänsesäger,Harle bièvre
+1080,2310,European Honey-buzzard,Wespenbussard,Bondrée apivore
+1090,2390,Red Kite,Rotmilan,Milan royal
+1100,2380,Black Kite,Schwarzmilan,Milan noir
+1110,2670,Northern Goshawk,Habicht,Autour des palombes
+1130,2690,Eurasian Sparrowhawk,Sperber,Épervier d'Europe
+1150,2870,Eurasian Buzzard,Mäusebussard,Buse variable
+1200,2960,Golden Eagle,Steinadler,Aigle royal
+1320,2460,Bearded Vulture,Bartgeier,Gypaète barbu
+1420,3200,Peregrine Falcon,Wanderfalke,Faucon pèlerin
+1430,3100,Eurasian Hobby,Baumfalke,Faucon hobereau
+1480,3040,Common Kestrel,Turmfalke,Faucon crécerelle
+1500,3350,Western Capercaillie,Auerhuhn,Grand Tétras
+1510,3320,Black Grouse,Birkhuhn,Tétras lyre
+1540,3300,Rock Ptarmigan,Alpenschneehuhn,Lagopède alpin
+1550,3260,Hazel Grouse,Haselhuhn,Gélinotte des bois
+1560,3570,Rock Partridge,Steinhuhn,Perdrix bartavelle
+1600,3670,Grey Partridge,Rebhuhn,Perdrix grise
+1610,3700,Common Quail,Wachtel,Caille des blés
+1670,4070,Western Water Rail,Wasserralle,Râle d'eau
+1680,4210,Corncrake,Wachtelkönig,Râle des genêts
+1690,4100,Little Crake,Kleines Sumpfhuhn,Marouette poussin
+1710,4080,Spotted Crake,Tüpfelsumpfhuhn,Marouette ponctuée
+1730,4240,Common Moorhen,Teichhuhn,Gallinule poule-d'eau
+1770,4290,Common Coot,Blässhuhn,Foulque macroule
+1850,4930,Northern Lapwing,Kiebitz,Vanneau huppé
+1920,4690,Little Ringed Plover,Flussregenpfeifer,Petit Gravelot
+2020,5410,Eurasian Curlew,Grosser Brachvogel,Courlis cendré
+2140,5560,Common Sandpiper,Flussuferläufer,Chevalier guignette
+2210,5190,Common Snipe,Bekassine,Bécassine des marais
+2230,5290,Eurasian Woodcock,Waldschnepfe,Bécasse des bois
+2550,5900,Mew Gull,Sturmmöwe,Goéland cendré
+2563,5926,Yellow-legged Gull,Mittelmeermöwe,Goéland leucophée
+2620,5750,Mediterranean Gull,Schwarzkopfmöwe,Mouette mélanocéphale
+2630,5820,Black-headed Gull,Lachmöwe,Mouette rieuse
+2750,6150,Common Tern,Flussseeschwalbe,Sterne pierregarin
+2980,6680,Stock Dove,Hohltaube,Pigeon colombin
+2990,6700,Common Woodpigeon,Ringeltaube,Pigeon ramier
+3000,6870,European Turtle-dove,Turteltaube,Tourterelle des bois
+3020,6840,Eurasian Collared-dove,Türkentaube,Tourterelle turque
+3040,7240,Common Cuckoo,Kuckuck,Coucou gris
+3070,7350,Common Barn-owl,Schleiereule,Effraie des clochers
+3080,7390,Eurasian Scops-owl,Zwergohreule,Petit-duc scops
+3090,7440,Eurasian Eagle-owl,Uhu,Grand-duc d'Europe
+3120,7510,Eurasian Pygmy-owl,Sperlingskauz,Chevêchette d'Europe
+3130,7570,Little Owl,Steinkauz,Chevêche d'Athéna
+3140,7610,Tawny Owl,Waldkauz,Chouette hulotte
+3170,7670,Northern Long-eared Owl,Waldohreule,Hibou moyen-duc
+3200,7700,Boreal Owl,Raufusskauz,Chouette de Tengmalm
+3230,7780,European Nightjar,Ziegenmelker,Engoulevent d'Europe
+3260,7980,Alpine Swift,Alpensegler,Martinet à ventre blanc
+3270,7950,Common Swift,Mauersegler,Martinet noir
+3280,7960,Pallid Swift,Fahlsegler,Martinet pâle
+3320,8310,Common Kingfisher,Eisvogel,Martin-pêcheur d'Europe
+3330,8400,European Bee-eater,Bienenfresser,Guêpier d'Europe
+3360,8460,Common Hoopoe,Wiedehopf,Huppe fasciée
+3370,8480,Eurasian Wryneck,Wendehals,Torcol fourmilier
+3380,8560,Eurasian Green Woodpecker,Grünspecht,Pic vert
+3390,8550,Grey-faced Woodpecker,Grauspecht,Pic cendré
+3400,8630,Black Woodpecker,Schwarzspecht,Pic noir
+3410,8760,Great Spotted Woodpecker,Buntspecht,Pic épeiche
+3430,8830,Middle Spotted Woodpecker,Mittelspecht,Pic mar
+3440,8840,White-backed Woodpecker*,Weissrückenspecht*,Pic à dos blanc*
+3450,8870,Lesser Spotted Woodpecker,Kleinspecht,Pic épeichette
+3460,8980,Three-toed Woodpecker,Dreizehenspecht,Pic tridactyle
+3560,9740,Woodlark,Heidelerche,Alouette lulu
+3570,9760,Eurasian Skylark,Feldlerche,Alouette des champs
+3610,9920,Barn Swallow,Rauchschwalbe,Hirondelle rustique
+3630,9910,Eurasian Crag Martin,Felsenschwalbe,Hirondelle de rochers
+3640,10010,Northern House Martin,Mehlschwalbe,Hirondelle de fenêtre
+3650,9810,Collared Sand Martin,Uferschwalbe,Hirondelle de rivage
+3660,15080,Eurasian Golden Oriole,Pirol,Loriot d'Europe
+3670,15720,Common Raven,Kolkrabe,Grand Corbeau
+3681,15671,Carrion Crow,Rabenkrähe,Corneille noire
+3700,15630,Rook,Saatkrähe,Corbeau freux
+3710,15600,Eurasian Jackdaw,Dohle,Choucas des tours
+3720,15490,Eurasian Magpie,Elster,Pie bavarde
+3740,15570,Northern Nutcracker,Tannenhäher,Cassenoix moucheté
+3750,15390,Eurasian Jay,Eichelhäher,Geai des chênes
+3770,15590,Red-billed Chough,Alpenkrähe,Crave à bec rouge
+3780,15580,Yellow-billed Chough,Alpendohle,Chocard à bec jaune
+3790,14640,Great Tit,Kohlmeise,Mésange charbonnière
+3800,14620,Eurasian Blue Tit,Blaumeise,Mésange bleue
+3820,14610,Coal Tit,Tannenmeise,Mésange noire
+3830,14540,Crested Tit,Haubenmeise,Mésange huppée
+3860,14400,Marsh Tit,Sumpfmeise,Mésange nonnette
+3870,14420,Alpine or Willow Tit,Mönchsmeise (Alpen- oder Weidenmeise),Mésange boréale (alpestre ou des saules)
+3880,14370,Long-tailed Tit,Schwanzmeise,Mésange à longue queue
+3900,13640,Bearded Reedling,Bartmeise,Panure à moustaches
+3910,14790,Eurasian Nuthatch,Kleiber,Sittelle torchepot
+3940,14860,Eurasian Treecreeper,Waldbaumläufer,Grimpereau des bois
+3950,14870,Short-toed Treecreeper,Gartenbaumläufer,Grimpereau des jardins
+3960,14820,Wallcreeper,Mauerläufer,Tichodrome échelette
+3970,10500,White-throated Dipper,Wasseramsel,Cincle plongeur
+3980,10660,Northern Wren,Zaunkönig,Troglodyte mignon
+4000,10990,European Robin,Rotkehlchen,Rougegorge familier
+4020,11040,Common Nightingale,Nachtigall,Rossignol philomèle
+4041,11061,Red-spotted Bluethroat,Rotsterniges Blaukehlchen,Gorgebleue à miroir roux
+4060,11210,Black Redstart,Hausrotschwanz,Rougequeue noir
+4070,11220,Common Redstart,Gartenrotschwanz,Rougequeue à front blanc
+4090,11370,Whinchat,Braunkehlchen,Tarier des prés
+4100,11390,Common Stonechat,Schwarzkehlchen,Tarier pâtre
+4120,11460,Northern Wheatear,Steinschmätzer,Traquet motteux
+4180,11620,Rufous-tailed Rock-thrush,Steinrötel,Monticole de roche
+4190,11660,Blue Rock-thrush,Blaumerle,Monticole bleu
+4230,11860,Ring Ouzel,Ringdrossel,Merle à plastron
+4240,11870,Eurasian Blackbird,Amsel,Merle noir
+4290,11980,Fieldfare,Wacholderdrossel,Grive litorne
+4310,12000,Song Thrush,Singdrossel,Grive musicienne
+4320,12020,Mistle Thrush,Misteldrossel,Grive draine
+4390,12360,Common Grasshopper-warbler,Feldschwirl,Locustelle tachetée
+4430,12380,Savi's Warbler,Rohrschwirl,Locustelle luscinioïde
+4450,12530,Great Reed-warbler,Drosselrohrsänger,Rousserolle turdoïde
+4460,12510,Common Reed-warbler,Teichrohrsänger,Rousserolle effarvatte
+4470,12500,Marsh Warbler,Sumpfrohrsänger,Rousserolle verderolle
+4520,12600,Melodious Warbler,Orpheusspötter,Hypolaïs polyglotte
+4530,12590,Icterine Warbler,Gelbspötter,Hypolaïs ictérine
+4570,12770,Eurasian Blackcap,Mönchsgrasmücke,Fauvette à tête noire
+4580,12730,Barred Warbler,Sperbergrasmücke,Fauvette épervière
+4600,12760,Garden Warbler,Gartengrasmücke,Fauvette des jardins
+4610,12750,Common Whitethroat,Dorngrasmücke,Fauvette grisette
+4620,12740,Lesser Whitethroat,Klappergrasmücke,Fauvette babillarde
+4720,13120,Willow Warbler,Fitis,Pouillot fitis
+4730,13110,Common Chiffchaff,Zilpzalp,Pouillot véloce
+4740,13070,Western Bonelli's Warbler,Berglaubsänger,Pouillot de Bonelli
+4750,13080,Wood Warbler,Waldlaubsänger,Pouillot siffleur
+4820,13140,Goldcrest,Wintergoldhähnchen,Roitelet huppé
+4830,13150,Common Firecrest,Sommergoldhähnchen,Roitelet à triple bandeau
+4840,13350,Spotted Flycatcher,Grauschnäpper,Gobemouche gris
+4860,13490,European Pied Flycatcher,Trauerschnäpper,Gobemouche noir
+4870,13480,Collared Flycatcher*,Halsbandschnäpper*,Gobemouche à collier*
+4900,10840,Dunnock,Heckenbraunelle,Accenteur mouchet
+4910,10940,Alpine Accentor,Alpenbraunelle,Accenteur alpin
+4930,10110,Meadow Pipit,Wiesenpieper,Pipit farlouse
+4950,10050,Tawny Pipit,Brachpieper,Pipit rousseline
+4970,10090,Tree Pipit,Baumpieper,Pipit des arbres
+5000,10140,Water Pipit,Bergpieper,Pipit spioncelle
+5030,10200,White Wagtail,Bachstelze,Bergeronnette grise
+5050,10190,Grey Wagtail,Gebirgsstelze,Bergeronnette des ruisseaux
+5060,10170,Western Yellow Wagtail,Schafstelze,Bergeronnette printanière
+5140,15230,Woodchat Shrike,Rotkopfwürger,Pie-grièche à tête rousse
+5160,15150,Red-backed Shrike,Neuntöter,Pie-grièche écorcheur
+5180,15820,Common Starling,Star,Étourneau sansonnet
+5250,15910,House Sparrow,Haussperling,Moineau domestique
+5252,15912,Italian Sparrow*,Italiensperling*,Moineau cisalpin*
+5280,15980,Eurasian Tree Sparrow,Feldsperling,Moineau friquet
+5290,16110,White-winged Snowfinch,Schneesperling,Niverolle alpine
+5320,17170,Hawfinch,Kernbeisser,Grosbec casse-noyaux
+5330,16490,European Greenfinch,Grünfink,Verdier d'Europe
+5350,16530,European Goldfinch,Stieglitz,Chardonneret élégant
+5360,16540,Eurasian Siskin,Erlenzeisig,Tarin des aulnes
+5370,16600,Common Linnet,Bluthänfling,Linotte mélodieuse
+5390,16630,Lesser Redpoll,Birkenzeisig,Sizerin cabaret
+5450,16440,Citril Finch,Zitronenzeisig,Venturon montagnard
+5460,16400,European Serin,Girlitz,Serin cini
+5480,17100,Eurasian Bullfinch,Gimpel,Bouvreuil pivoine
+5500,16790,Common Rosefinch,Karmingimpel,Roselin cramoisi
+5520,16660,Red Crossbill,Fichtenkreuzschnabel,Bec-croisé des sapins
+5550,16360,Common Chaffinch,Buchfink,Pinson des arbres
+5570,18820,Corn Bunting,Grauammer,Bruant proyer
+5580,18570,Yellowhammer,Goldammer,Bruant jaune
+5640,18580,Cirl Bunting,Zaunammer,Bruant zizi
+5670,18660,Ortolan Bunting,Ortolan,Bruant ortolan
+5690,18600,Rock Bunting,Zippammer,Bruant fou
+5740,18770,Reed Bunting,Rohrammer,Bruant des roseaux
