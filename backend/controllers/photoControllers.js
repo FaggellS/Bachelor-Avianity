@@ -50,7 +50,7 @@ getPhotos = async (req, res) => {
 
             for (let photo of response) {
 
-                const guesses = await Guess.find({ photo_id: photo_id }) 
+                const guesses = await Guess.find({ photo_id: photo._id }) 
 
                 const mostLikelySpecies = getLikelySpecies( guesses )
 
