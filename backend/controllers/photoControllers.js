@@ -169,7 +169,7 @@ deletePhoto = async (req, res) => {
         // first unlink the image from file system
         fs.unlink(imagepath, (err) => {
             if (err) {
-                res.status(400).json({error: err.message})
+                throw Error(err.message)
             }
 
             console.log('file removed from images')
@@ -217,14 +217,13 @@ deletePhotos = async (req, res) => {
         const photos = await Photo.find({})
 
         if ( !photos ) {
-            res.status(400).json({error: 'deletePhotos: find query did not succeed'})
+            throw Error('deletePhotos: find query did not succeed')
         }
 
         photos.forEach( ( photo ) => {
             fs.unlink(photo.imagepath, (err) => {
                 if (err) {
-                    res.status(400).json({error: err.message})
-                    return
+                    throw Error(err.message)
                 }
             })
         })
@@ -234,7 +233,7 @@ deletePhotos = async (req, res) => {
         const guess_response = await Guess.deleteMany({})
 
         if ( !guess_response ) {
-            res.status(400).json({error: 'deletePhotos: Guess.deleteMany query did not succeed'})
+            throw Error('deletePhotos: Guess.deleteMany query did not succeed')
         }
 
         // if successful, delete all photos
@@ -242,7 +241,7 @@ deletePhotos = async (req, res) => {
         const photo_response = await Photo.deleteMany({})
 
         if ( !photo_response ) {
-            res.status(400).json({error: 'deletePhotos: Photo.deleteMany query did not succeed'})
+            throw Error('deletePhotos: Photo.deleteMany query did not succeed')
         }
 
 
