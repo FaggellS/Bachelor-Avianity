@@ -38,6 +38,8 @@ app.use('/api/commune', communeRoutes)
 
 // DB CONNECTION AND LISTENING IN TO REQUEST
 
+console.log("Server starting...")
+console.log("check dotenv port: ", process.env.PORT)
 mongoose.connect( process.env.MONGO_URI, { dbName: 'tb_mern' })
     .then( () => {
 
