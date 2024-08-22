@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 
 const fs = require('fs')
 
+const getLikelySpecies = require('./algorithms/getLikelySpecies')
+
 
 ///////////////////////////////////////////////////////////////////
 ////////////////////// METHOD DEFINTIONS //////////////////////////
@@ -48,7 +50,9 @@ getPhotos = async (req, res) => {
 
             for (let photo of response) {
 
-                const mostLikelySpecies = await Guess.getLikelySpecies( photo._id )
+                const guesses = await Guess.find({ photo_id: photo_id }) 
+
+                const mostLikelySpecies = getLikelySpecies( guesses )
 
                 if ( mostLikelySpecies.species.includes(species) ) {
 
