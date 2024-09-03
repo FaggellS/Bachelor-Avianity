@@ -1,9 +1,17 @@
 // imports
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 
 const AboutUs = () => {
     const navigate = useNavigate()
+
+    useEffect( async () => {
+
+        const res = await fetch('/', {
+                headers: {  }
+            })
+    })
 
     return (
         <div className="page">
