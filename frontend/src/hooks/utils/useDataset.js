@@ -61,7 +61,7 @@ export const useDataset = () => {
                         for (let i = 0; i < json.species.length; i++){
                             photo.probable_species.push({
                                 species: json.species[i],
-                                certitude: json.cert[i]
+                                certitude: json.confidence[i]
                             })
                         }
                     }
@@ -90,7 +90,7 @@ export const useDataset = () => {
                     if(res.ok){
 
                         photo.probable_species = json.species[0]
-                        photo.probable_species_certitude = json.cert[0]
+                        photo.probable_species_certitude = json.confidence[0]
                         }
                     }
 

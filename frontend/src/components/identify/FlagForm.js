@@ -7,8 +7,8 @@ import { useAuthContext } from "../../hooks/contexthooks/useAuthContext"
 
 const FlagForm = () => {
     const { object: photo, dispatch } = useIdentifyContext()
-
     const { user } = useAuthContext()
+    
     const navigate = useNavigate()
 
 
@@ -30,7 +30,7 @@ const FlagForm = () => {
                 formData.append('delete_flags', entry)
             }
             
-            const response = await fetch('/api/photo/' + photo._id, {
+            await fetch('/api/photo/' + photo._id, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${ user.token }`
@@ -38,11 +38,6 @@ const FlagForm = () => {
                 body: formData
             })
 
-            if(response.ok){
-                dispatch({
-                    type:"DELETE_OBJECT"
-                })
-            }
 
             mainText = "We will keep an eye on this photo !"
 
@@ -51,7 +46,7 @@ const FlagForm = () => {
             const formData = new FormData()
             formData.append("imagepath", photo.imagepath)
 
-             await fetch('/api/photo/' + photo._id, {
+            await fetch('/api/photo/' + photo._id, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${ user.token }`
@@ -60,9 +55,21 @@ const FlagForm = () => {
 
             })
 
+            await fetch('/api/guess/' + photo._id, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${ user.token }`
+                }
+
+            })
+
             mainText = "Some users have also flagged this photo, it will now be removed !"
 
         }
+
+        dispatch({
+            type:"DELETE_OBJECT"
+        })
 
         navigate('/selected/thank-you',  {state: { mainText: mainText }})
 

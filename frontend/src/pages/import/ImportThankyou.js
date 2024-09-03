@@ -6,14 +6,18 @@ import { useImportContext } from '../../hooks/contexthooks/useImportContext'
 const ImportThankyou = () => {
     const { newUrl: url, dispatch } = useImportContext()
 
+
     const navigate = useNavigate()
     const navigationType = useNavigationType()
 
     useEffect( () => {
         if (navigationType === "POP"){
-                navigate('/')
+            navigate('/')
         }
     }, [navigate, navigationType])
+
+
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -26,6 +30,7 @@ const ImportThankyou = () => {
         navigate("/")
     }
 
+    
     return (
 
         <div className="page">

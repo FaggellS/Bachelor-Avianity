@@ -35,11 +35,10 @@ const ImportPhotoForm = () => {
 
             <div className='image-area'>
                 { url && <img src={ url } className='image-main' alt="" /> }
-                
             </div>
 
+
             <div className='form-area'>
-                
                 <form onSubmit={ handleSubmit }>
 
                     <h3>Your photo: </h3>
@@ -69,7 +68,6 @@ const ImportPhotoForm = () => {
 
 
                 </form>
-
             </div>
 
         </div>

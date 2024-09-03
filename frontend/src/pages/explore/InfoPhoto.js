@@ -1,10 +1,11 @@
 // imports
 import { useNavigate, useNavigationType } from 'react-router-dom'
-import {  useEffect } from 'react'
+import { useEffect } from 'react'
+import { useIdentifyContext } from '../../hooks/contexthooks/useIdentifyContext'
 
 import TitleAndReturn from '../../components/TitleAndReturn'
 import Details from '../../components/identify/Details'
-import { useIdentifyContext } from '../../hooks/contexthooks/useIdentifyContext'
+
 
 
 const InfoPhoto = () => {

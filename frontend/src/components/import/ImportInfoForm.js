@@ -23,15 +23,16 @@ const ImportInfoForm = () => {
     const { postPhoto, loading, error } = usePostPhoto()
     const { postGuess, loading2, error2 } = usePostGuess()
 
+    const navigate = useNavigate()
+
     
     // FORM INFORMATIONS
     const [ location, setLocation ] = useState('')
     const [ date, setDate ] = useState('')
     const [ species, setSpecies ] = useState('')
-    const [ confidence, setConfidence ] = useState('')
+    const [ certitude, setCertitude ] = useState('')
 
 
-    const navigate = useNavigate()
 
 
     // SUBMIT FUNCTION
@@ -58,7 +59,7 @@ const ImportInfoForm = () => {
 
         // Second, create the guess doc
         // this hook fetches the post request
-        const response2 = await postGuess(photo_id, guess, confidence, user_id)
+        const response2 = await postGuess(photo_id, guess, certitude, user_id)
 
         if(!response2) {throw Error('postGuess did not succeed')}
 
@@ -66,7 +67,6 @@ const ImportInfoForm = () => {
         e.target.reset()
 
         navigate('/import/thank-you')
-
     }
 
     return (
@@ -118,12 +118,12 @@ const ImportInfoForm = () => {
             <input
                 type='range'
                 min="0" max="100"
-                onChange={(e) => setConfidence(e.target.value)}
-                value={ confidence }
+                onChange={(e) => setCertitude(e.target.value)}
+                value={ certitude }
                 required
             />
 
-            <button disabled={ loading || loading2 || !location || !date || !species || !confidence } id="button" className='darker-button'>Confirm</button>
+            <button disabled={ loading || loading2 || !location || !date || !species || !certitude } id="button" className='darker-button'>Confirm</button>
             { error &&  <div className='error'>{ error }</div> }
             { error2 &&  <div className='error'>{ error2 }</div> }
 

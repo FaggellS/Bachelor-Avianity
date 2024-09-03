@@ -1,6 +1,6 @@
 //imports
 const getAllSpecies = require('./getAllSpecies')
-const getAllCertitude = require('./getAllCertitude')
+const getAllConfidence = require('./getAllConfidence')
 
 //     GET LIKELY SPECIES       ////////////////////////////////////////
 
@@ -10,7 +10,7 @@ const getLikelySpecies = function ( guesses ) {
 
         const allSpecies = getAllSpecies( guesses )
 
-        const { species_list, certitude_list } = getAllCertitude( guesses, allSpecies )
+        const { species_list, confidence_list } = getAllConfidence( guesses, allSpecies )
 
 
         let i = []
@@ -19,7 +19,7 @@ const getLikelySpecies = function ( guesses ) {
 
         if (species_list.length >= 3){
                 
-            let cl = [...certitude_list]
+            let cl = [...confidence_list]
 
             i[0] = cl.indexOf(Math.max(...cl))
             cl[i[0]] = -1
@@ -31,12 +31,12 @@ const getLikelySpecies = function ( guesses ) {
 
             return {
                 species: [species_list[i[0]], species_list[i[1]], species_list[i[2]]],
-                cert: [certitude_list[i[0]], certitude_list[i[1]], certitude_list[i[2]]]
+                conf: [confidence_list[i[0]], confidence_list[i[1]], confidence_list[i[2]]]
             }
 
         } else if (species_list.length === 2) {
 
-            let cl = [...certitude_list]
+            let cl = [...confidence_list]
 
             i[0] = cl.indexOf(Math.max(...cl))
             cl[i[0]] = -1
@@ -45,13 +45,13 @@ const getLikelySpecies = function ( guesses ) {
 
             return {
                 species: [species_list[i[0]], species_list[i[1]]],
-                cert: [certitude_list[i[0]], certitude_list[i[1]]]
+                conf: [confidence_list[i[0]], confidence_list[i[1]]]
             }
 
         } else if (species_list.length === 1) {
             return {
                 species: species_list,
-                cert: certitude_list
+                conf: confidence_list
             }
         } else { throw Error("There should be at least one species..") }
     } catch (err) {

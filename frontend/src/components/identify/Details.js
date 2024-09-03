@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import { useIdentifyContext } from '../../hooks/contexthooks/useIdentifyContext'
 import { useAuthContext } from '../../hooks/contexthooks/useAuthContext'
 
-const Details = () => {
 
+
+const Details = () => {
 
     const [guessList, setGuessList] = useState([])
 
@@ -21,7 +22,7 @@ const Details = () => {
     useEffect( () => {
         const fetchUser = async () => {
             const response = await fetch('/api/user/' + photo.user_id, {
-                headers: {  }
+                headers: {}
             })
 
             const json = await response.json()
@@ -51,14 +52,16 @@ const Details = () => {
 
             if (response.ok){
                 let list = []
-                for (let i=0 ; i< json.cert.length ; i++){
-                    list.push({ species: json.species[i], cert: json.cert[i] })
+                for (let i=0 ; i< json.confidence.length ; i++){
+                    list.push({ species: json.species[i], conf: json.confidence[i] })
                 }
                 setGuessList(list)
             }
         }
 
         if (user && photo){
+            
+            console.log("tryin fetch user")
             fetchLikelySpecies()
             console.log("is flag disabled: ", photo.delete_flags.includes(user.user_id))
         } 
@@ -132,7 +135,7 @@ const Details = () => {
                         <ul>
                             <hl />
                             { guessList && guessList.map( (elem) => {
-                                    return <li>{elem.species} ({(elem.cert * 100).toFixed(1)}%)</li>
+                                    return <li>{elem.species} ({(elem.conf * 100).toFixed(1)}%)</li>
                                 }) 
                             }
                         </ul>
@@ -151,7 +154,6 @@ const Details = () => {
 
 
             </div>
-
         }</>
     )
 }

@@ -11,6 +11,7 @@ import IdentifyForm from '../../components/identify/IdentifyForm'
 const IdentifyPhoto = () => {
 
     const { object:photo } = useIdentifyContext()
+    
     const navigate = useNavigate()
     const navigationType = useNavigationType()
 

@@ -1,11 +1,11 @@
 // imports
-
 import { useState, useEffect } from "react"
 import { useAuthContext } from "../hooks/contexthooks/useAuthContext"
 import { useNavigate } from "react-router-dom"
 
 
 const UserPage = () => {
+
     const { user: user } = useAuthContext()
     const [ userInfo, setUserInfo ] = useState("")
 
@@ -54,9 +54,10 @@ const UserPage = () => {
         }
     }
 
+
+
+
     return (
-
-
         <div className="page">
 
             <div className="page-header" id="p-page">
@@ -72,6 +73,8 @@ const UserPage = () => {
                 </div>
                 <p></p>
             </div>
+
+            
 
             <div className="page-body" style={{marginTop:60 + 'px'}}>
                 <div className="darker-bg">

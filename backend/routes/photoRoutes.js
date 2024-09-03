@@ -9,8 +9,7 @@ const {
     getPhoto,
     updatePhoto,
     deletePhoto,
-    createPhoto,
-    deletePhotos
+    createPhoto
 } = require('../controllers/photoControllers')
 
 //////////////////////// MULTER THINGS ////////////////////////////
@@ -65,13 +64,6 @@ router.post('/',  upload.single('image'), (req,res) => {
     console.log("post create")
 })
 
-
-
-// UNPROTECTED ROUTES
-
-
-// dev route: DELETE all photos
-router.delete('/', deletePhotos)
 
 /////////////////////////////////////////////////////////////////
 

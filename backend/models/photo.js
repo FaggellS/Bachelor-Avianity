@@ -9,37 +9,20 @@ const Schema = mongoose.Schema
 ////////////////////////////////////////////////////////////////////////////
 
 const photoSchema = new Schema(
-    {
-       
-        imagepath: {
-            type: String, required:true
-        },
+    {   
+        imagepath: { type: String, required:true },
 
-        location: {
-            type: String, required: true
-        },
+        location: { type: String, required: true },
 
-        date: {
-            type: String, required: true
-        },
+        date: { type: String, required: true },
 
-        is_classed: {
-            type: Boolean,
-            default: false
-        },
+        is_classed: { type: Boolean, default: false },
 
-        delete_flags: [{
-            type: String
-        }],
+        delete_flags: [{ type: String }],
     
-        user_id: {
-            type: String,
-            required: true
-        }
-
-    },
-
-    { timestamps: true }
+        user_id: { type: String, required: true }
+        
+    }, { timestamps: true }
 )
 
 module.exports = mongoose.model('Photo', photoSchema)

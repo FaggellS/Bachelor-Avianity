@@ -5,7 +5,6 @@ import { useAuthContext } from './hooks/contexthooks/useAuthContext'
 // layouts
 import { SignupContextLayout } from './paths/SignupContextLayout'
 import { ImportContextLayout } from './paths/ImportContextLayout'
-import { ExploreContextLayout } from './paths/ExploreContextLayout'
 import { IdentifyContextLayout } from './paths/IdentifyContextLayout'
 
 // pages
@@ -95,32 +94,23 @@ function App() {
 
             </Route>
             
-            <Route element={ <ExploreContextLayout /> }>
-
-              <Route element={ <IdentifyContextLayout /> }>
-
-                <Route path='/explore' element={ user ? <Explore /> : <Navigate to="/" />  } />
-
-                <Route path='/explore/info' element={ user ? <InfoPhoto /> :
-                <Navigate to="/" /> 
-                
-                } />
-
-
-              
-                
-                <Route path='/selected/identify' element={ user ? <IdentifyPhoto /> : <Navigate to="/" />  } />
-
-                <Route path='/selected/flag' element={ user ? <FlagPhoto /> : <Navigate to="/" />  } />
-
-                <Route path='/selected/thank-you' element={ user ? <IdentifyThankYou /> : <Navigate to="/" />  } />
-
-              </Route>
-
-            </Route>
-
             
 
+            <Route element={ <IdentifyContextLayout /> }>
+
+              <Route path='/explore' element={ <Explore />  } />
+
+              <Route path='/explore/info' element={ user ? <InfoPhoto /> :
+              <Navigate to="/" /> 
+              } />
+              
+              <Route path='/selected/identify' element={ user ? <IdentifyPhoto /> : <Navigate to="/" />  } />
+
+              <Route path='/selected/flag' element={ user ? <FlagPhoto /> : <Navigate to="/" />  } />
+
+              <Route path='/selected/thank-you' element={ user ? <IdentifyThankYou /> : <Navigate to="/" />  } />
+
+            </Route>
 
 
 

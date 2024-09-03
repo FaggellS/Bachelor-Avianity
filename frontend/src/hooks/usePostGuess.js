@@ -10,13 +10,13 @@ export const usePostGuess  = () => {
 
 
 
-    const postGuess = async (photo_id, species, confidence, user_id) => {
+    const postGuess = async (photo_id, species, certitude, user_id) => {
 
             setLoading(true);
             setError(null);
 
             console.log('new Guess Entry: ')
-            console.log(photo_id, species, confidence, user_id)
+            console.log(photo_id, species, certitude, user_id)
 
 
 
@@ -31,7 +31,7 @@ export const usePostGuess  = () => {
                 const status = userObject.member_status
 
                 // new Guess placeholder
-                const object = { photo_id, species, confidence, user_id, status }
+                const object = { photo_id, species, certitude, user_id, status }
 
                 // send new Guess to backend
                 const response = await fetch('/api/guess', {

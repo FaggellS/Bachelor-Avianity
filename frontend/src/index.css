@@ -288,7 +288,7 @@ nav button {
   margin-top:10px;
   min-width: 450px;
   min-height: 400px;
-  align-items: last baseline;
+  align-items:end;
 }
 
 .image-main {

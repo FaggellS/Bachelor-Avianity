@@ -1,17 +1,21 @@
 // imports
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/contexthooks/useAuthContext'
 import { useIdentifyContext } from '../../hooks/contexthooks/useIdentifyContext'
+
+import { usePostGuess } from '../../hooks/usePostGuess'
 import useSpeciesSelect from '../../hooks/utils/useSpeciesSelect'
 import Select from 'react-select'
-import { useNavigate } from 'react-router-dom'
-import { usePostGuess } from '../../hooks/usePostGuess'
+
 
 
 const IdentifyForm = () => {
-    const CERTITUDE_THRESH = 0.65
+    const CONFIDENCE_THRESH = 0.60
+
+    
     const [ species, setSpecies ] = useState(null)
-    const [ confidence, setConfidence ] = useState(null)
+    const [ certitude, setCertitude ] = useState(null)
 
     const { object: photo } = useIdentifyContext()
     const { user } = useAuthContext()
@@ -29,7 +33,7 @@ const IdentifyForm = () => {
         const user_id = user.user_id
         const guess = species.value
 
-        const successful = await postGuess(photo._id, guess, confidence, user_id)
+        const successful = await postGuess(photo._id, guess, certitude, user_id)
         
 
         if(successful){
@@ -43,9 +47,10 @@ const IdentifyForm = () => {
             const json = await response.json()
 
             let new_is_classed = false
-            console.log("max: ", Math.max(...json.cert))
-            console.log("higher or not: ", Math.max(...json.cert) > CERTITUDE_THRESH)
-            if (Math.max(...json.cert) > CERTITUDE_THRESH){
+            console.log("max: ", Math.max(...json.confidence))
+            console.log("higher or not: ", Math.max(...json.confidence) > CONFIDENCE_THRESH)
+            
+            if (Math.max(...json.confidence) > CONFIDENCE_THRESH){
 
                 new_is_classed = true 
                 console.log("new: ", new_is_classed)
@@ -53,17 +58,18 @@ const IdentifyForm = () => {
 
 
             const formData = new FormData()
-                formData.append('is_classed', new_is_classed)
-                for (let entry of photo.delete_flags) {
-                    formData.append('delete_flags', entry)
-                }
+            formData.append('is_classed', new_is_classed)
+            
+            for (let entry of photo.delete_flags) {
+                formData.append('delete_flags', entry)
+            }
 
-                await fetch('/api/photo/' + photo._id, {
-                    method: "PATCH",
-                    headers: { 'Authorization': `Bearer ${ user.token }`
-                    },
-                    body: formData
-                })
+            await fetch('/api/photo/' + photo._id, {
+                method: "PATCH",
+                headers: { 'Authorization': `Bearer ${ user.token }`
+                },
+                body: formData
+            })
 
             const mainText = "Your guess was successfully registered !"
 
@@ -109,12 +115,12 @@ return (
                     min="0" max="100"
                     onChange={(e) => {
                         if(e.target.value === 0){
-                            setConfidence(0.000001)
+                            setCertitude(0.000001)
                         } else {
-                            setConfidence(e.target.value)
+                            setCertitude(e.target.value)
                         }
                     }}
-                    value={ confidence }
+                    value={ certitude }
                     required
                 />
 

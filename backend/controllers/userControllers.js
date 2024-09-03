@@ -15,6 +15,10 @@ const createToken = ( _id ) => {
 ///////////////////////////////////////////////////////////////////
 ////////////////////// METHOD DEFINTIONS //////////////////////////
 ///////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////
+// loginUser - POST a login request
+//
 const getUser = async(req, res) => {
     try{
         const {id: user_id} = req.params
@@ -29,7 +33,11 @@ const getUser = async(req, res) => {
     }
 }
 
+///////////////////////////////////////////////////////////////////
+// loginUser - POST a login request
+//
 const requestStatus = async(req, res) => {
+    console.log("User: requestStatus start")
     try {
 
         const { id: user_id} = req.params
@@ -44,42 +52,51 @@ const requestStatus = async(req, res) => {
         }
 
         res.status(200).json({response: true})
+        console.log("User: requestStatus stop: successful")
 
     } catch (err) {
-        console.error("error: " + err.message)
+        console.error("User: requestStatus: an error occurred: " + err.message)
         res.status(400).json({error:err.message})
     }
 }
 
+///////////////////////////////////////////////////////////////////
+// loginUser - POST a login request
+//
 const sendReset = async (req, res) => {
+    console.log("User: sendReset start")
     try {
         const {email} = req.body
 
         const response = await User.resetCode(email)
 
         if (!response) {
-            throw Error('signupUser: static signup did not succeed')
+            throw Error('User: sendReset: static method did not succeed')
         }
 
         // returns the user mail
         res.status(200).json( response )
+        console.log("User: sendReset stop: successful")
 
 
     } catch (err) {
-        console.error("error: " + err.message)
+        console.error("User: sendReset: an error occurred: " + err.message)
         res.status(400).json({error:err.message})
     }
 }
 
+///////////////////////////////////////////////////////////////////
+// loginUser - POST a login request
+//
 const confirmReset = async (req, res) => {
+    console.log("User: confirmReset start")
     try {
-        console.log("here we start")
         const { email, code, password} = req.body
 
         const response = await User.resetConfirm(email, code, password)
 
         if (!response){
-            throw Error("static reset confirm problem")
+            throw Error("User: confirmReset: static method problem")
         }
 
         const user_id = response._id
@@ -87,12 +104,14 @@ const confirmReset = async (req, res) => {
 
         //create a token
         const token = createToken(user_id)
-        console.log("shouldve worked")
+
         // returns: user id, username, email, token
         res.status(200).json({user_id, username, email, token})
+        console.log("User: confirmReset stop: successful")
+
 
     } catch (err) {
-        console.error("error: " + err.message)
+        console.error("User: confirmReset: an error occurred: " + err.message)
         res.status(400).json({error:err.message})
     }
 }
@@ -116,7 +135,7 @@ const loginUser = async (req, res) => {
         if(!response){
             const msg = 'There was an error with static login'
             console.error(msg)
-            res.status(400).json({error: msg})
+            throw Error(msg)
         }
 
         // if response is ok, we retreive user id and create a token with it
@@ -195,7 +214,7 @@ const confirmUser = async (req, res) => {
         if(!response){
             const msg = 'There was an error with static confirmSignup'
             console.error(msg)
-            res.status(400).json({error: msg})
+            throw Error( msg )
         }
 
         // if ok, retreive the new user id and create a token with it

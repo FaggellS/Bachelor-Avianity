@@ -2,8 +2,9 @@ const express = require('express')
 
 // controller methods
 const {
-    getBestCert,
+    getBestScores,
     getGuesses,
+    deleteGuesses,
     createGuess
 } = require('../controllers/guessControllers')
 
@@ -22,7 +23,10 @@ router.use(requireAuth)
 router.get('/all', getGuesses)
 
 // GET three best Certitude degree for a photo
-router.get('/likely/:id', getBestCert)
+router.get('/likely/:id', getBestScores)
+
+// DELETE a guess
+router.delete('/:id', deleteGuesses)
 
 // POST a guess
 router.post('/', createGuess)

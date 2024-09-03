@@ -15,22 +15,19 @@ const getLikelySpecies = require('./algorithms/getLikelySpecies')
 ///////////////////////////////////////////////////////////////////
 
 // getPhotos - GET all photos 
-// (id:none, body:none)
-// (query: may have filters !)
+// (query:maybe, body:none)
 
 
 getPhotos = async (req, res) => {
     console.log('Photo: GET all start')
     try {
 
-        console.log(req.query)
         const { status, species } = req.query
         let query = {}
         let selection = []
 
         // if there is a status filter, add it to the filter query
         if ( status ){
-
             query.is_classed = (status === 'classed' ? true : false )
         }
 
@@ -56,14 +53,14 @@ getPhotos = async (req, res) => {
 
                 if ( mostLikelySpecies.species.includes(species) ) {
 
-
                     selection.push(photo)
+
                 }
             }
         }
 
-        console.log('Photo: GET all stop: successful')
         res.status(200).json( selection )
+        console.log('Photo: GET all stop: successful')
 
     } catch (error) {
         console.error('Photo: GET all: an error occured: ' + error.message)
@@ -75,19 +72,16 @@ getPhotos = async (req, res) => {
 ///////////////////////////////////////////////////////////////////
 
 // getPhoto - GET a single photo
-// (id:true, body:none)
+// (query:yes, body:none)
 
 
 getPhoto = async (req, res) => {
     console.log('Photo: GET one start')
     try {
 
-
         // fetch photo_id: 
         // it's found in the request address, so fetch it with req.params
         const { id: photo_id } = req.params
-        console.log("id:")
-        console.log(photo_id)
 
         // is it a valid mongoose id:
         if(!mongoose.Types.ObjectId.isValid( photo_id )){
@@ -114,7 +108,7 @@ getPhoto = async (req, res) => {
 ///////////////////////////////////////////////////////////////////
 
 // updatePhoto - PATCH a photo
-// (id:true, body:Photo)
+// (id:yes, body:yes)
 
 
 updatePhoto = async (req, res) => {
@@ -123,8 +117,6 @@ updatePhoto = async (req, res) => {
 
         const { is_classed:is_classed, delete_flags:delete_flags } = req.body
         const { id: photo_id } = req.params
-
-        console.log("new del flags: ", delete_flags)
 
         if ( !photo_id || !is_classed  ){
             throw Error('No field should be missing')
@@ -144,9 +136,8 @@ updatePhoto = async (req, res) => {
             throw Error ('updatePhoto: findOneAndReplace query did not succeed')
         }
 
-
-        console.log('Photo: PATCH one stop: successful')
         res.status(200).json({ response })
+        console.log('Photo: PATCH one stop: successful')
 
     } catch (error) {
         console.error('Photo: PATCH one: an error occured: ' + error.message)
@@ -157,7 +148,7 @@ updatePhoto = async (req, res) => {
 ///////////////////////////////////////////////////////////////////
 
 // DELETE a photo
-// (id:true, body:yes)
+// (id:yes, body:yes)
 
 deletePhoto = async (req, res) => {
     console.log('Photo: DELETE one start')
@@ -165,7 +156,6 @@ deletePhoto = async (req, res) => {
 
         // fetch imagepath to unlink from files
         const { imagepath } = req.body
-        console.log("imagepath:", imagepath)
 
         // fetch photo_id through req.params
         const { id: photo_id } = req.params
@@ -179,81 +169,19 @@ deletePhoto = async (req, res) => {
             console.log('file removed from images')
         })
 
-
-        // if we delete the photo, we need to delete associated guesses as well !
-        // mongoose query: deleteMany( condition(s) )
-        const guess_response = await Guess.deleteMany( { photo_id: photo_id } )
-
-        if ( !guess_response ) {
-            throw Error('deletePhoto: deleteMany query did not succeed')
-        }
-
-
         // if successful, find and delete Photo document
         // mongoose query: findOneAndDelete( id )
-        const photo_response = await Photo.findOneAndDelete( { _id: photo_id } )
+        const response = await Photo.findOneAndDelete( { _id: photo_id } )
 
-        if ( !photo_response ) {
+        if ( !response ) {
             throw Error('deletePhoto: findOneAndDelete query did not succeed')
         }
 
-
+        res.status(200).json({ response })
         console.log('Photo: DELETE one stop: successful')
-        res.status(200).json({ photo_response })
 
     } catch (error) {
         console.error('Photo: DELETE one: an error occured: ', error.message)
-        res.status(400).json({ error: error.message })
-    }
-}
-///////////////////////////////////////////////////////////////////
-
-// DELETE all photos
-// (id:none, body:none)
-
-deletePhotos = async (req, res) => {
-    console.log('Photo: DELETE all start')
-    try {
-
-
-        // find all photos and circle through to unlink
-        // mongoose query: find({})
-        const photos = await Photo.find({})
-
-        if ( !photos ) {
-            throw Error('deletePhotos: find query did not succeed')
-        }
-
-        photos.forEach( ( photo ) => {
-            fs.unlink(photo.imagepath, (err) => {
-                if (err) {
-                    throw Error(err.message)
-                }
-            })
-        })
-
-        // if successful, delete all guesses
-        // mongoose query: deleteMany({})
-        const guess_response = await Guess.deleteMany({})
-
-        if ( !guess_response ) {
-            throw Error('deletePhotos: Guess.deleteMany query did not succeed')
-        }
-
-        // if successful, delete all photos
-        // mongoose query: deleteMany({})
-        const photo_response = await Photo.deleteMany({})
-
-        if ( !photo_response ) {
-            throw Error('deletePhotos: Photo.deleteMany query did not succeed')
-        }
-
-
-        console.log('Photo: DELETE all stop: successful')
-        res.status(200).json({ state: "success" })
-
-    } catch (error) {
-        console.error('Photo: DELETE all: an error occured..')
         res.status(400).json({ error: error.message })
     }
 }
@@ -261,7 +189,7 @@ deletePhotos = async (req, res) => {
 ///////////////////////////////////////////////////////////////////
 
 // POST a photo
-// (id:none, body:Photo)
+// (id:none, body:yes)
 
 const createPhoto = async (req, res) => {
     console.log('Photo: POST one start')
@@ -276,7 +204,6 @@ const createPhoto = async (req, res) => {
             throw Error( 'No fields should be missing' )
         } else {
         console.log("  Photo: POST one: request body: ", imagepath, location, date, user_id)
-
         }
 
 
@@ -298,9 +225,7 @@ const createPhoto = async (req, res) => {
             throw Error('createPhoto: save query did not succeed')
         }
 
-        // should return the newly created document
         res.status(200).json( response )
-
         console.log('Photo: POST one stop: successful')
 
     } catch (error) {
@@ -316,6 +241,5 @@ module.exports = {
     getPhoto,
     updatePhoto,
     deletePhoto,
-    createPhoto,
-    deletePhotos
+    createPhoto
 }

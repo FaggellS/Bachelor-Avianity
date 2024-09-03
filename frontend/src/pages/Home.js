@@ -1,9 +1,9 @@
 // imports
 import { Link } from 'react-router-dom'
-
 import { useAuthContext } from '../hooks/contexthooks/useAuthContext'
 
 import Icon from '../components/Icon'
+
 
 const Home = () => {
 

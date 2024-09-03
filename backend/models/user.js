@@ -47,7 +47,7 @@ let userSchema = new Schema({
         index:true
     }
 
-}, {timestamps: true, _id: true})
+}, {timestamps: true})
 
 userSchema.index({createdAt: 1}, {
     expireAfterSeconds: 60, 

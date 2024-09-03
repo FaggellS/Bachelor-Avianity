@@ -20,6 +20,7 @@ const Selection = () => {
     
     const [ photos, setPhotos ] = useState([]) 
     const [ selected, setSelected] = useState(null)
+
     const [alert, setAlert] = useState("")
 
     const { user } = useAuthContext()
@@ -68,6 +69,8 @@ const Selection = () => {
 
         if ( user ){
             fetchPhotos()
+        } else {
+            navigate("/")
         }
     }, [ user, filterStatus, filterSpecies ])
 
@@ -148,9 +151,10 @@ const Selection = () => {
         navigate("/explore/info")
     }
 
+
+
     return (
         <div>
-
             <form className='filter-area'>
                 <label>Filters:</label>
                 <Select
@@ -173,11 +177,11 @@ const Selection = () => {
                 <Select
                     className='filter'
                     options={[
-                        { value: '', label: 'none'},
+                        { value: '', label: 'all species'},
                         ...species_list 
                         ]}
                     defaultValue={
-                        { value: '', label: 'none' }
+                        { value: '', label: 'all species' }
                     }
                     onChange={(elem) => setFilterSpecies(elem.value)}
                     placeholder="Filter by potential species"

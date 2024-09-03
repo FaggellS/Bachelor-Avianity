@@ -1,28 +1,14 @@
 // imports
-
-import { useNavigate, useNavigationType } from "react-router-dom"
-import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const AboutUs = () => {
     const navigate = useNavigate()
-    const navigationType = useNavigationType()
-
-    useEffect( () => {
-
-        
-        console.log("nav type: ", navigationType)
-        if (navigationType === "POP"){
-            const s = navigate(-1).pathname
-            console.log("last page: ", s)
-            if (s === "/explore/info"){
-                navigate('/explore')}
-        }
-    }, [navigate, navigationType])
-
 
     return (
         <div className="page">
+
+
             <div className="page-header" id="p-page">
                 <div className='row-layout'>
                     <div className='weight'>
@@ -35,6 +21,8 @@ const AboutUs = () => {
                 </div>
                 <p></p>
             </div>
+
+
 
             <div className="page-body">
                 <div className="general-info" >

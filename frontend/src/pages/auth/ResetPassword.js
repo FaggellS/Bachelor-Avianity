@@ -50,11 +50,12 @@ const ResetPassword = () => {
             <div className="page-body">
 
                 <form id="auth" >
-                { !user && <p>Enter your Email and we'll send you a code to reset your password</p>}
+                { !user && !next && <p>Enter your Email and we'll send you a code to reset your password</p>}
                 
-                { user && <p>If you really wish to reset your password, <br/>
+                { user && !next && <p>If you really wish to reset your password, <br/>
                 please click 'next' and we'll mail you a confirmation code.</p>}
 
+                { next && <p>You can now check your mail !</p> }
 
                     <h3>Reset your password:</h3>  
 
