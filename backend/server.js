@@ -22,7 +22,7 @@ app.use( cors() )
 app.use( express.json() )
 app.use( (req, res, next) => {
     console.log('\nrequest PATH: ' + req.path + '\nrequest METHOD: ' + req.method)
-    res.set('Access-Control-Allow-Origin', process.env.PROD_PROXY)
+    res.set('Access-Control-Allow-Origin', 'https://avianity.onrender.com')
     next()
 })
 app.use('/api/images', express.static(path.join(__dirname, 'images')))

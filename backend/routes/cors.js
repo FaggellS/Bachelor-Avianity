@@ -1,6 +1,6 @@
 const cors = require('cors')
 
-const whitelist = [process.env.PROD_PROXY]
+const whitelist = ['https://avianity.onrender.com']
 
 const corsOptionsDelegate = (req, callback) => {
     let corsOptions
