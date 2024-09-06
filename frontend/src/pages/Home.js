@@ -17,7 +17,7 @@ const Home = () => {
                 <div className='home-logo'>
                 
                     <Icon  size={"home-size"}/>
-                    <h1>Avianity</h1>   
+                    <h1>HELLLOOOOO</h1>   
 
                 </div>
                 
