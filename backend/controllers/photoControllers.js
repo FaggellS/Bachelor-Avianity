@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 
 const fs = require('fs')
 
-const removeImage = require('../utils/uploadToCloudinary')
+const {removeImage} = require('../utils/uploadToCloudinary')
 
 const getLikelySpecies = require('./algorithms/getLikelySpecies')
 
