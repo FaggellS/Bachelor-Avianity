@@ -53,11 +53,14 @@ const Selection = () => {
             }
 
             console.log('fetch query: ' + query)
+            console.log("are you alive")
 
             const response = await fetch('/api/photo/all' + query, {
                 mode: 'cors',
                 headers: { 'Authorization': `Bearer ${ user.token }` }
             })
+
+            console.log("heyooo-..")
 
             const json = await response.json()
 
