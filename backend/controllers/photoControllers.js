@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 
 const fs = require('fs')
 
+const removeImage = require('../utils/uploadToCloudinary')
+
 const getLikelySpecies = require('./algorithms/getLikelySpecies')
 
 
@@ -160,14 +162,8 @@ deletePhoto = async (req, res) => {
         // fetch photo_id through req.params
         const { id: photo_id } = req.params
 
-        // first unlink the image from file system
-        fs.unlink(imagepath, (err) => {
-            if (err) {
-                throw Error(err.message)
-            }
-
-            console.log('file removed from images')
-        })
+        // first remove the image from cloud
+        removeImage(imagepath)
 
         // if successful, find and delete Photo document
         // mongoose query: findOneAndDelete( id )

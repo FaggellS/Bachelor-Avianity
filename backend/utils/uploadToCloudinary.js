@@ -17,7 +17,23 @@ const storage = new CloudinaryStorage({
   },
 })
 
+function getPublicIdFromUrl(url) {
+  const parts = url.split('/');  
+  const lastPart = parts.pop();  
+  const publicId = lastPart.split('.')[0];  // get the extension out
+  return 'images/' + publicId;  
+}
+
+function removeImage(url) {
+  const publicId = getPublicIdFromUrl(url)
+  cloudinary.uploader.destroy(publicId, (error, result) => {
+    if (error) {
+      console.error('Could not delete:', error);
+    }
+  });
+}
+
 // export funct
 const upload = multer({ storage: storage })
 
-module.exports = upload
+module.exports = { upload, removeImage}
