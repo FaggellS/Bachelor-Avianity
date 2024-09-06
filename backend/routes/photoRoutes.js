@@ -1,7 +1,7 @@
 // imports
 const express = require('express')
-const multer = require('multer')
 const router = express.Router()
+const upload = require('../utils/uploadToCloudinary')
 
 // controller methods
 const {
@@ -11,19 +11,6 @@ const {
     deletePhoto,
     createPhoto
 } = require('../controllers/photoControllers')
-
-//////////////////////// MULTER THINGS ////////////////////////////
-
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'images/');
-    },
-    filename: function(req, file, cb) {
-        cb(null, Date.now() + '_' +  file.originalname);
-    }
-});
-
-const upload = multer({ storage: storage })
 
 
 //////////////////// MIDDLEWARE FOR PROTECTED ROUTES /////////////////////////////
@@ -58,11 +45,7 @@ router.patch('/:id',  upload.single('image'), updatePhoto)
 router.delete('/:id', upload.single('image'), deletePhoto)
 
 // POST a photo
-router.post('/',  upload.single('image'), (req,res) => {
-    console.log("pre create")
-    createPhoto(req,res)
-    console.log("post create")
-})
+router.post('/',  upload.single('image'), createPhoto)
 
 
 /////////////////////////////////////////////////////////////////
