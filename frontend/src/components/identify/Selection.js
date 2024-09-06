@@ -61,6 +61,10 @@ const Selection = () => {
 
             const json = await response.json()
 
+            console.log("json:")
+            console.log(json)
+        
+
             if( response.ok ){
                 setPhotos(json)
                 photos.forEach( elem => console.log("imagepath: ", elem.imagepath))
