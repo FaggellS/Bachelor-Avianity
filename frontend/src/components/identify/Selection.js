@@ -205,7 +205,7 @@ const Selection = () => {
                             value={selected}
                             >
                             
-                            <img classname="gallery-img"  src={ "/api/" + elem.imagepath } alt=""/>
+                            <img classname="gallery-img"  src={ elem.imagepath } alt=""/>
                         </button>
 
                     ))}

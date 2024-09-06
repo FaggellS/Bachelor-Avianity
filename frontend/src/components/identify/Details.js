@@ -114,7 +114,7 @@ const Details = () => {
             <div className='image-form-layout'>
                 <div className='darker-bg'>
                 <div className='image-area'>
-                    <img src={ "/api/" + photo.imagepath } className='image-main' alt="" /> 
+                    <img src={ photo.imagepath } className='image-main' alt="" /> 
                     <div className='row-layout'>
                     <button 
                     className="flag" 

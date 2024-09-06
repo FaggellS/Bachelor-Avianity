@@ -84,7 +84,7 @@ return (
     <div className="image-form-layout">
 
         <div className="image-area">
-            { photo && <img src={"/api/" + photo.imagepath} className='image-main'  alt="" /> }
+            { photo && <img src={ photo.imagepath } className='image-main'  alt="" /> }
         </div>
 
         <div className="form-area">
