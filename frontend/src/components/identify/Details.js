@@ -31,6 +31,7 @@ const Details = () => {
                 setUsername(json.username)
             }
         }
+        console.log("TRY")
 
         if (user && photo){
             console.log("LOOKHERE")
