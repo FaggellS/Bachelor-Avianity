@@ -55,13 +55,13 @@ const Signup = () => {
                         value={ username }
                     />
 
-                    <label>Password: </label>
+                    <label>Password: !!</label>
                     <input
                         type='password'
                         onChange={(e) => setPassword(e.target.value)}
                         value={ password }
                     />
-                    <p>Your password must have at least one number and an uppercase and lowercase letter.</p>
+                    <p style={{fontSize: 0.4 + 'em'}}>Your password must have at least one number and an uppercase and lowercase letter, and at least one special character.</p>
 
                     <button disabled={ isLoading } id="button" className="darker-button"> Sign up </button>
                     { error && <div className='error'> { error } </div> }

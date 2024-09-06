@@ -163,12 +163,14 @@ userSchema.statics.signup = async function ( email, username, password ) {
 
     if (!validator.isStrongPassword(password, {minLowercase: 1, minUppercase: 1, minNumbers: 1})){
         let str = 'Password is not strong enough. Your password needs at least: '
-        if ( validator.isAlpha(password) ){ str.concat('1 number,') }
-        if ( validator.isNumeric(password) ){ str.concat('1 letter,') }
-        if ( validator.isAlpha(password) && validator.isLowercase(password) ){ str.concat('1 uppercase letter,') }
-        if ( validator.isAlpha(password) && validator.isUppercase(password) ){ str.concat('1 lowercase letter,') }
+        let need = ''
+        if ( validator.isAlpha(password) ){ need.concat('1 number, ') }
+        if ( validator.isNumeric(password) ){ need.concat('1 letter, ') }
+        if ( validator.isAlpha(password) && validator.isLowercase(password) ){ need.concat('1 uppercase letter, ') }
+        if ( validator.isAlpha(password) && validator.isUppercase(password) ){ need.concat('1 lowercase letter, ') }
+        if ( need.length === 0 ){ str.concat(need.concat('1 special character ')) }
     
-        throw Error(str.slice(0, -1)) 
+        throw Error(str.slice(0, -2)) 
     }
 
     // check if email already exists
