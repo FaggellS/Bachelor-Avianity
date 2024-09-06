@@ -33,6 +33,8 @@ const Details = () => {
         }
 
         if (user && photo){
+            console.log("LOOKHERE")
+            console.log("photo path: ", photo.imagepath)
             fetchUser()
         }
     }, [photo, user])
