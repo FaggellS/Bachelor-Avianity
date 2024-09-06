@@ -162,7 +162,7 @@ userSchema.statics.signup = async function ( email, username, password ) {
     }
 
     if (!validator.isStrongPassword(password, {minLowercase: 1, minUppercase: 1, minNumbers: 1})){
-        let str = 'Password is not strong enough.\n Your password needs at least:\n '
+        let str = 'Your password still needs: '
         let need = ''
         if ( validator.isAlpha(password) ){ need = need.concat('1 number, ') }
         if ( validator.isNumeric(password) ){ need = need.concat('1 letter, ') }
@@ -203,7 +203,7 @@ userSchema.statics.signup = async function ( email, username, password ) {
         }
     )
 
-    const response = await this.create(user)
+    await this.create(user)
 
     // generate code
     const confirmationCode = generateConfirmationCode( )
