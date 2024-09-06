@@ -61,6 +61,7 @@ const Signup = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         value={ password }
                     />
+                    <p>Your password must have at least one number and an uppercase and lowercase letter.</p>
 
                     <button disabled={ isLoading } id="button" className="darker-button"> Sign up </button>
                     { error && <div className='error'> { error } </div> }

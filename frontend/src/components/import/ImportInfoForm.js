@@ -115,13 +115,15 @@ const ImportInfoForm = () => {
             />
 
             <label>How confident do you feel ?: </label>
-            <input
+            <div className='row-layout'><input
                 type='range'
+                id="range"
                 min="0" max="100"
                 onChange={(e) => setCertitude(e.target.value)}
                 value={ certitude }
                 required
-            />
+            /> <p style={{fontSize: 0.2 + 'em'}}>Certitude degree: <output for="range"></output></p>
+            </div>
 
             <button disabled={ loading || loading2 || !location || !date || !species || !certitude } id="button" className='darker-button'>Confirm</button>
             { error &&  <div className='error'>{ error }</div> }
