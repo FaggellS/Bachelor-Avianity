@@ -63,6 +63,7 @@ const Selection = () => {
 
             if( response.ok ){
                 setPhotos(json)
+                photos.forEach( elem => console.log("imagepath: ", elem.imagepath))
                 if(filterStatus === "classed" && format) { updateDataset(json, format) }
             }
         }
