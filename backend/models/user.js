@@ -161,17 +161,31 @@ userSchema.statics.signup = async function ( email, username, password ) {
         throw Error('Email is not valid')
     }
 
-    if (!validator.isStrongPassword(password, {minLowercase: 1, minUppercase: 1, minNumbers: 1})){
+    if (!validator.isStrongPassword(password, {minLength:4, minLowercase: 1, minUppercase: 1, minNumbers: 1})){
+        const hasSpecial = new RegExp('[$&+,:;=?@#|\'<>.^*()%!-]')
+        const hasNumber = new RegExp('^(?=.*[0-9]).*$')
+        const hasLetter = new RegExp('^(?=.*[a-zA-Z]).*$')
+        
         let str = 'Your password still needs: '
         let need = ''
-        if ( validator.isAlpha(password) ){ need = need.concat('1 number, ') }
-        if ( validator.isNumeric(password) ){ need = need.concat('1 letter, ') }
-        if ( validator.isAlpha(password) && validator.isLowercase(password) ){ need = need.concat('1 uppercase letter, ') }
-        if ( validator.isAlpha(password) && validator.isUppercase(password) ){ need = need.concat('1 lowercase letter, ') }
 
-        if ( need.length === 0 ){ need = need.concat('1 special character, ') }
-    
-        throw Error(str.concat(need).slice(0, -2)) 
+        if ( !hasLetter.test(password) ){ need = need.concat('2 letters, ') }
+        else if ( !hasNumber.test(password) ){ need = need.concat('1 number, ') }
+        
+        else if ( hasLetter.test(password) ) {
+            const letters = password.replace(/[^a-zA-Z]/g, '');
+            if ( validator.isLowercase(letters) ){ need = need.concat('1 uppercase letter, ') }
+            if ( validator.isUppercase(letters) ){ need = need.concat('1 lowercase letter, ') }
+        }
+
+        if ( !hasSpecial.test(password) ){need = need.concat('1 special character, ')}
+
+        if (need.length === 0){
+            throw Error('Invalid password, please check the requirements')
+        } else {
+            throw Error(str.concat(need).slice(0, -2)) 
+        }
+        
     }
 
     // check if email already exists

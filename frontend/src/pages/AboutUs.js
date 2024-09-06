@@ -1,20 +1,12 @@
 // imports
-import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 
 const AboutUs = () => {
     const navigate = useNavigate()
 
-    useEffect( async () => {
-
-        const res = await fetch('/', {
-                headers: {  }
-            })
-    })
-
     return (
-        <div className="page">
+        <div className="page" id="page-special">
 
 
             <div className="page-header" id="p-page">
@@ -56,6 +48,9 @@ const AboutUs = () => {
                     We count on your
                     help to document more sightings, especially for the endangered and rare species that reside in the country !
                     </center></p>
+
+                    
+                    
                 </div>
             </div>
         </div>

@@ -57,7 +57,7 @@ const getBestScores = async ( req, res ) => {
         }
 
         // should return 2 lists of corresponding species-confidence pairs with the highest scores
-        res.status(200).json( {species: response.species, confidence: response.conf} )  
+        res.status(200).json( {species: response.species, confidence: response.conf, total: guesses.length} )  
         console.log('Guess: GET best scores stop: successful')
 
     } catch (error) {

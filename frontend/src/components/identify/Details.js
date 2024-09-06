@@ -31,11 +31,8 @@ const Details = () => {
                 setUsername(json.username)
             }
         }
-        console.log("TRY")
 
         if (user && photo){
-            console.log("LOOKHERE")
-            console.log("photo path: ", photo.imagepath)
             fetchUser()
         }
     }, [photo, user])
@@ -63,10 +60,7 @@ const Details = () => {
         }
 
         if (user && photo){
-            
-            console.log("tryin fetch user")
             fetchLikelySpecies()
-            console.log("is flag disabled: ", photo.delete_flags.includes(user.user_id))
         } 
     }, [photo, user])
 

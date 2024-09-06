@@ -12,6 +12,8 @@ import Select from 'react-select'
 
 const IdentifyForm = () => {
     const CONFIDENCE_THRESH = 0.60
+    const MIN_GUESSES = 10
+    const MAX_GUESSES = 20
 
     
     const [ species, setSpecies ] = useState(null)
@@ -49,12 +51,22 @@ const IdentifyForm = () => {
             let new_is_classed = false
             console.log("max: ", Math.max(...json.confidence))
             console.log("higher or not: ", Math.max(...json.confidence) > CONFIDENCE_THRESH)
-            
-            if (Math.max(...json.confidence) > CONFIDENCE_THRESH){
+            console.log("total: ", json.total)
+
+            if (
+                Math.max(...json.confidence) > CONFIDENCE_THRESH &&
+                json.total >= MIN_GUESSES
+            ){
 
                 new_is_classed = true 
-                console.log("new: ", new_is_classed)
-            } 
+
+            } else if (
+                json.total >= MAX_GUESSES
+            ){
+
+                new_is_classed = true
+                
+            }
 
 
             const formData = new FormData()
@@ -110,7 +122,7 @@ return (
                 />
 
                 <label>How confident do you feel ?: </label>
-                <input
+                <div className='row-layout'><input
                     type='range'
                     min="0" max="100"
                     onChange={(e) => {
@@ -122,7 +134,8 @@ return (
                     }}
                     value={ certitude }
                     required
-                />
+                /><p style={{fontSize: 0.7 + 'em', paddingTop: 0.85 + 'em'}}> value: {certitude}</p>
+                </div>
 
                 <button disabled={loading} id="button" className='darker-button'>Confirm</button>
                 { error &&  <div className='error'>{ error }</div> }

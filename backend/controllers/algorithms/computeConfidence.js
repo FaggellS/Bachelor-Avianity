@@ -19,9 +19,6 @@ const computeConfidence = function ( guesses, species, species_total=179 ) {
             }
         })
 
-        numerator += 1
-        denominator += (species_total)
-
         let conf = numerator / denominator
 
         if (conf == 0){ conf = 0.000001 }

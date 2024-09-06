@@ -53,24 +53,17 @@ const Selection = () => {
             }
 
             console.log('fetch query: ' + query)
-            console.log("are you alive")
 
             const response = await fetch('/api/photo/all' + query, {
                 mode: 'cors',
                 headers: { 'Authorization': `Bearer ${ user.token }` }
             })
 
-            console.log("heyooo-..")
-
             const json = await response.json()
-
-            console.log("json:")
-            console.log(json)
         
 
             if( response.ok ){
                 setPhotos(json)
-                photos.forEach( elem => console.log("imagepath: ", elem.imagepath))
                 if(filterStatus === "classed" && format) { updateDataset(json, format) }
             }
         }

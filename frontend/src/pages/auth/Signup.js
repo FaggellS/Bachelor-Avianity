@@ -39,7 +39,7 @@ const Signup = () => {
 
                 <form id="auth" onSubmit={handleSubmit}>
 
-                    <h3>Sign upHALLO</h3>
+                    <h3>Sign up</h3>
 
                     <label>Email: </label>
                     <input
@@ -55,13 +55,19 @@ const Signup = () => {
                         value={ username }
                     />
 
-                    <label>Password: !!</label>
+                    <label>Password: </label>
                     <input
                         type='password'
                         onChange={(e) => setPassword(e.target.value)}
                         value={ password }
                     />
-                    <p style={{fontSize: 0.4 + 'em'}}>Your password must have at least one number and an uppercase and lowercase letter, and at least one special character.</p>
+                    <p style={{fontSize: 0.7 + 'em', marginTop: 0.2 + 'em'}}>Your password must have at least:
+                    <ul>
+                        <li>a number,</li>
+                        <li>a lowercase letter,</li>
+                        <li>an uppercase letter,</li>
+                        <li>a special character.</li>
+                    </ul></p>
 
                     <button disabled={ isLoading } id="button" className="darker-button"> Sign up </button>
                     { error && <div className='error'> { error } </div> }

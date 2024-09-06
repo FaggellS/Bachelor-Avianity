@@ -122,7 +122,7 @@ const ImportInfoForm = () => {
                 onChange={(e) => setCertitude(e.target.value)}
                 value={ certitude }
                 required
-            /> <p style={{fontSize: 0.2 + 'em'}}>Certitude degree: <output for="range"></output></p>
+            /> <p style={{fontSize: 0.7 + 'em', paddingTop: 0.85 + 'em'}}> value: {certitude}</p>
             </div>
 
             <button disabled={ loading || loading2 || !location || !date || !species || !certitude } id="button" className='darker-button'>Confirm</button>
