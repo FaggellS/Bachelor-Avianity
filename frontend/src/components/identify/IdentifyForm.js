@@ -52,6 +52,7 @@ const IdentifyForm = () => {
 
             console.log("total: ", json.total)
 
+            let i = []
             let cl = [...json.confidence]
 
             i[0] = cl.indexOf(Math.max(...cl))
