@@ -19,11 +19,13 @@ export const useDataset = () => {
         setError(null)
 
         console.log("format: ", format)
+        
 
         const zip = new JSZip()
 
         for ( let photo of selection) {
-            const image = await fetch("/api/" + photo.imagepath)
+            console.log("imagepath: ", photo.imagepath)
+            const image = await fetch( photo.imagepath )
             const blob = await image.blob()
             zip.file(photo.imagepath.split("/").pop(), blob)
                

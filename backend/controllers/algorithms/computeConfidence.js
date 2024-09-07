@@ -9,12 +9,11 @@ const computeConfidence = function ( guesses, species, species_total=179 ) {
         guesses.forEach( (elem) => {
 
             const cert = (elem.certitude * elem.ponderation)
-            if (elem.species === species){
 
+            if (elem.species === species){
                 numerator +=  cert
                 denominator +=  cert
             } else {
-
                 denominator += cert
             }
         })

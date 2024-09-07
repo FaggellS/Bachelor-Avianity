@@ -11,7 +11,7 @@ import Select from 'react-select'
 
 
 const IdentifyForm = () => {
-    const CONFIDENCE_THRESH = 0.60
+    const GAP_THRESH = 0.2
     const MIN_GUESSES = 10
     const MAX_GUESSES = 20
 
@@ -49,12 +49,26 @@ const IdentifyForm = () => {
             const json = await response.json()
 
             let new_is_classed = false
-            console.log("max: ", Math.max(...json.confidence))
-            console.log("higher or not: ", Math.max(...json.confidence) > CONFIDENCE_THRESH)
+
             console.log("total: ", json.total)
 
+            let cl = [...json.confidence]
+
+            i[0] = cl.indexOf(Math.max(...cl))
+            cl[i[0]] = -1
+
+            i[1] = cl.indexOf(Math.max(...cl))
+            cl[i[1]] = -1
+
+            console.log("max: ", json.confidence[i[0]])
+            console.log("second: ",json.confidence[i[1]])
+
+            const gap = json.confidence[i[0]] - json.confidence[i[1]]
+
+            console.log("gap: ",gap)
+
             if (
-                Math.max(...json.confidence) > CONFIDENCE_THRESH &&
+                gap > GAP_THRESH &&
                 json.total >= MIN_GUESSES
             ){
 
